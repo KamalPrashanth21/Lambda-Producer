@@ -8,7 +8,7 @@ export interface SourceOrderData {
     sku: string; // Required: Product SKU
     quantity: number; // Required: Quantity ordered
     unitPrice: number; // Required: Price per unit
-    discountAmount?: number; // Optional: Discount applied
+    discountAmount?: number;     // Optional: Discount applied
   }[]; // Required: At least one item
   paymentMethod: string; // Required: Payment method used
   shippingAddress?: {
@@ -23,7 +23,6 @@ export interface SourceOrderData {
   notes?: string; // Optional: Additional notes
 }
 
-// Target Model (Output to webhook.site)
 export interface TargetOrderModel {
   order: {
     id: string; // Order ID
