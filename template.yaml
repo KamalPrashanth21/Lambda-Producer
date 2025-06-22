@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Generic Producer Lambda Implementation with Webhook.site
+
+Resources:
+  GenericLambdaProducerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: custom-service-event-Producer
+      Handler: dist/index.LambdaHandler             # compiled JS output (index.js exports 'handler')
+      Runtime: nodejs18.x
+      CodeUri: .                              # root of the project (where package.json + dist/ live)
+      Timeout: 10
+      Events:
+        ApiV1:
+          Type: Api
+          Properties:
+            Path: /custom-service/event-producer/v1
+            Method: POST
+        HealthCheck:
+          Type: Api
+          Properties:
+            Path: /custom-service/event-producer/v1/healthCheck
+            Method: GET
+      Environment:
+        Variables:
+          WEBHOOK_URL: https://webhook.site/4f49fb04-964f-4351-9611-a1ff5c92cf55

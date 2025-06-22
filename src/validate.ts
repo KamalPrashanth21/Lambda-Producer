@@ -9,7 +9,7 @@ export function ValidateInput (data : any) : ValidationResult{ //the data that g
     const errors : string[] = [];
 
     if (!data.orderId || typeof data.orderId !== 'string')errors.push("OrderId is required and it must be a string");
-    if (!data.orderDate || typeof data.orderDate !== 'string') errors.push('orderDate is required and must be a string.');
+    if (typeof data.orderDate !== 'string') errors.push('orderDate is required and must be a string.');
     if (!data.customerId || typeof data.customerId !== 'string') errors.push('customerId is required and must be a string.');
     if (!data.storeId || typeof data.storeId !== 'number') errors.push('storeId is required and must be a number.');
     if (!Array.isArray(data.items) || data.items.length === 0) errors.push('items must be a non-empty array.');
@@ -22,7 +22,7 @@ export function ValidateInput (data : any) : ValidationResult{ //the data that g
         errors.push(`status should be one of the following : ${allowedStatuses.join(', ')}`);
     }
 
-    const datePattern = /^(0[1-9]|1[0-2])\/(0[1-9]|12[0-9]|3[0-1])\/\d{4}$/;
+    const datePattern = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[0-1])\/\d{4}$/;
     if (!data.orderDate || !datePattern.test(data.orderDate) || isNaN(Date.parse(data.orderDate))) {
         errors.push('orderDate should be in MM/DD/YYYY format.');
     }

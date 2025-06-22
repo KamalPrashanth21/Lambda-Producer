@@ -5,9 +5,18 @@ import dotenv from 'dotenv';
 import {publishToWebHook} from "./publish";
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 
+dotenv.config();
 
 export const LambdaHandler = async(event: APIGatewayProxyEvent) : Promise<APIGatewayProxyResult> => {
     try{
+        //for HealthCheck Endpoint
+        if(event.path.endsWith('/healthCheck') && event.httpMethod==='GET'){
+            return {
+                statusCode : 200,
+                body : JSON.stringify({status:'ok'}),
+            };
+        }
+
         if(!event.body){
             return{
                 statusCode : 400,

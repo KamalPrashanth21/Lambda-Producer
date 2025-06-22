@@ -14,7 +14,7 @@ export function Transform(source : SourceOrderData) : TargetOrderModel{ //so, ou
             location : {
               storeId : source.storeId.toString(),  
             },
-            status : source.status,
+            status : source.status.toLowerCase(),
             payment : {
                 method : source.paymentMethod,
                 total  :source.totalAmount,

@@ -1,0 +1,10 @@
+{
+  "resource": "/order",
+  "path": "/order",
+  "httpMethod": "POST",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\n  \"orderId\": \"ORD-12345\",\n  \"orderDate\": \"10/15/2023\",\n  \"customerId\": \"CUST-789\",\n  \"storeId\": 42,\n  \"items\": [\n    {\n      \"sku\": \"PROD-001\",\n      \"quantity\": 2,\n      \"unitPrice\": 29.99,\n      \"discountAmount\": 5.00\n    },\n    {\n      \"sku\": \"PROD-002\",\n      \"quantity\": 1,\n      \"unitPrice\": 49.99\n    }\n  ],\n  \"paymentMethod\": \"CREDIT_CARD\",\n  \"shippingAddress\": {\n    \"street\": \"123 Main St\",\n    \"city\": \"Columbus\",\n    \"state\": \"OH\",\n    \"zipCode\": \"43215\",\n    \"country\": \"USA\"\n  },\n  \"totalAmount\": 104.97,\n  \"status\": \"NEW\",\n  \"notes\": \"Please deliver after 5pm\"\n}",
+  "isBase64Encoded": false
+}
