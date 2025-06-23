@@ -14,7 +14,7 @@ export async function publishToWebHook(data : TargetOrderModel) : Promise<void>{
         });
         logger({
             level : 'INFO',
-            message : 'Data has been published successfully in Webhook.site',
+            message : 'Data has been published successfully to Webhook.site',
             context:{
                 statusCode: 200,
             }

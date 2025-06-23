@@ -7,9 +7,9 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: process-order-producer
-      Handler: dist/index.LambdaHandler             # compiled JS output (index.js exports 'handler')
+      Handler: dist/index.LambdaHandler             
       Runtime: nodejs18.x
-      CodeUri: .                              # root of the project (where package.json + dist/ live)
+      CodeUri: .                            
       Timeout: 10
       Events:
         ApiV1:
