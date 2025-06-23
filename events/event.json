@@ -1,6 +1,6 @@
 {
-  "resource": "/order",
-  "path": "/order",
+  "resource": "/process",
+  "path": "/order-producer/v1",
   "httpMethod": "POST",
   "headers": {
     "Content-Type": "application/json"

@@ -3,10 +3,10 @@ Transform: AWS::Serverless-2016-10-31
 Description: Generic Producer Lambda Implementation with Webhook.site
 
 Resources:
-  GenericLambdaProducerFunction:
+  LambdaOrderProducerFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: custom-service-event-Producer
+      FunctionName: process-order-producer
       Handler: dist/index.LambdaHandler             # compiled JS output (index.js exports 'handler')
       Runtime: nodejs18.x
       CodeUri: .                              # root of the project (where package.json + dist/ live)
@@ -15,12 +15,12 @@ Resources:
         ApiV1:
           Type: Api
           Properties:
-            Path: /custom-service/event-producer/v1
+            Path: /process/order-producer/v1
             Method: POST
         HealthCheck:
           Type: Api
           Properties:
-            Path: /custom-service/event-producer/v1/healthCheck
+            Path: /process/order-producer/v1/healthCheck
             Method: GET
       Environment:
         Variables:

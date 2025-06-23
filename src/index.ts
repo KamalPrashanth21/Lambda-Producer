@@ -4,6 +4,7 @@ import { ValidateInput } from "./validate";
 import dotenv from 'dotenv';
 import {publishToWebHook} from "./publish";
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import { logger } from "./logger";
 
 dotenv.config();
 
@@ -24,6 +25,15 @@ export const LambdaHandler = async(event: APIGatewayProxyEvent) : Promise<APIGat
             };
         }
         const payload = JSON.parse(event.body);
+
+        logger({
+            level: 'INFO',
+            message: 'Incoming request received',
+            context: {
+                path: event.path,
+                httpMethod: event.httpMethod,
+            }
+        });
 
         const validatedData = ValidateInput(payload);//validation
         if(!validatedData.valid){

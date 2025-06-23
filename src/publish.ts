@@ -1,5 +1,6 @@
 import { TargetOrderModel } from "./types";
 import axios from "axios";
+import { logger } from "./logger";
 
 const webHook_URL = process.env.WEBHOOK_URL;
 
@@ -11,9 +12,23 @@ export async function publishToWebHook(data : TargetOrderModel) : Promise<void>{
         const response = await axios.post(webHook_URL,data,{
             headers: {'Content-Type' : 'application/json' }, //can also be optional. Only URL, data is reqd
         });
-        console.log(`The data has been published in webHook.site with Status : ${response.status} and response body : ${response.data}`);
+        logger({
+            level : 'INFO',
+            message : 'Data has been published successfully in Webhook.site',
+            context:{
+                statusCode: 200,
+            }
+        });
     }
     catch(error : any){
-        throw new Error("Webhook publish operation failed!");
+        logger({
+            level: 'ERROR',
+            message: 'Webhook call failed',
+            context: {
+                errorMessage: error.message,
+                orderId: data.order.id,
+            }
+         });
+        throw error;
     }
 };

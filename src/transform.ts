@@ -1,8 +1,9 @@
 import { SourceOrderData, TargetOrderModel } from "./types";
 import { formatDatetoISO } from "./utils";
+import { logger } from "./logger";
 
 export function Transform(source : SourceOrderData) : TargetOrderModel{ //so, output is of the form targetOrderModel
-
+    try{
     const createdAt = formatDatetoISO(source.orderDate);
     const transformed : TargetOrderModel = {
         order : {
@@ -48,6 +49,26 @@ export function Transform(source : SourceOrderData) : TargetOrderModel{ //so, ou
             processedAt : new Date().toISOString(),
         },
     };
+
+    logger({
+        level : 'INFO',
+        message : "Successfully transformed the data!",
+        context : {
+            userId: source.customerId, 
+            orderId: source.orderId,
+        },
+    });
     return transformed;
-    
+    }
+    catch(error: any){
+        logger({
+            level: 'ERROR', 
+            message: 'Transformation failed', 
+            context: { 
+                errorMessage: error.message,
+                orderId: source.orderId,
+            }
+        });
+        throw error;
+    }   
 }
