@@ -9,5 +9,5 @@ module.exports = {
   transform: {
     ...tsJestTransformCfg,
   },
-  testPathIgnorePatterns: ['/node_modules/', '/.aws-sam/','/dist/']
+  testPathIgnorePatterns: ['/node_modules/', '/.aws-sam/','/dist/','src/logger.ts','src/utils.ts']
 };

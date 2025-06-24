@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1750766407914" clover="3.2.0">
-  <project timestamp="1750766407914" name="All files">
-    <metrics statements="49" coveredstatements="43" conditionals="99" coveredconditionals="82" methods="6" coveredmethods="6" elements="154" coveredelements="131" complexity="0" loc="49" ncloc="49" packages="1" files="4" classes="4"/>
-    <file name="logger.ts" path="C:\Signet AWS Dev\Nodejs\lambda_producer\src\logger.ts">
-      <metrics statements="9" coveredstatements="5" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
-      <line num="9" count="1" type="cond" truecount="0" falsecount="1"/>
-      <line num="10" count="2" type="stmt"/>
-      <line num="15" count="2" type="stmt"/>
-      <line num="17" count="2" type="cond" truecount="1" falsecount="2"/>
-      <line num="19" count="0" type="stmt"/>
-      <line num="20" count="0" type="stmt"/>
+<coverage generated="1750785146838" clover="3.2.0">
+  <project timestamp="1750785146838" name="All files">
+    <metrics statements="60" coveredstatements="56" conditionals="101" coveredconditionals="87" methods="7" coveredmethods="7" elements="168" coveredelements="150" complexity="0" loc="60" ncloc="60" packages="1" files="5" classes="5"/>
+    <file name="logger.ts" path="C:\Users\kamal\Downloads\Signet AWS-Nodejs\Lambda-Producer\src\logger.ts">
+      <metrics statements="9" coveredstatements="7" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="9" count="2" type="cond" truecount="0" falsecount="1"/>
+      <line num="10" count="4" type="stmt"/>
+      <line num="15" count="4" type="stmt"/>
+      <line num="17" count="4" type="cond" truecount="2" falsecount="1"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
       <line num="22" count="0" type="stmt"/>
       <line num="23" count="0" type="stmt"/>
-      <line num="25" count="2" type="stmt"/>
+      <line num="25" count="3" type="stmt"/>
     </file>
-    <file name="transform.ts" path="C:\Signet AWS Dev\Nodejs\lambda_producer\src\transform.ts">
+    <file name="publish.ts" path="C:\Users\kamal\Downloads\Signet AWS-Nodejs\Lambda-Producer\src\publish.ts">
+      <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="3" type="stmt"/>
+      <line num="7" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+    </file>
+    <file name="transform.ts" path="C:\Users\kamal\Downloads\Signet AWS-Nodejs\Lambda-Producer\src\transform.ts">
       <metrics statements="13" coveredstatements="11" conditionals="36" coveredconditionals="31" methods="2" coveredmethods="2"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
@@ -30,38 +44,38 @@
       <line num="64" count="0" type="stmt"/>
       <line num="72" count="0" type="stmt"/>
     </file>
-    <file name="utils.ts" path="C:\Signet AWS Dev\Nodejs\lambda_producer\src\utils.ts">
+    <file name="utils.ts" path="C:\Users\kamal\Downloads\Signet AWS-Nodejs\Lambda-Producer\src\utils.ts">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="2" type="stmt"/>
       <line num="3" count="2" type="stmt"/>
     </file>
-    <file name="validate.ts" path="C:\Signet AWS Dev\Nodejs\lambda_producer\src\validate.ts">
-      <metrics statements="24" coveredstatements="24" conditionals="59" coveredconditionals="50" methods="2" coveredmethods="2"/>
+    <file name="validate.ts" path="C:\Users\kamal\Downloads\Signet AWS-Nodejs\Lambda-Producer\src\validate.ts">
+      <metrics statements="24" coveredstatements="24" conditionals="59" coveredconditionals="52" methods="2" coveredmethods="2"/>
       <line num="8" count="1" type="stmt"/>
-      <line num="9" count="7" type="stmt"/>
-      <line num="11" count="7" type="cond" truecount="4" falsecount="0"/>
-      <line num="12" count="7" type="cond" truecount="1" falsecount="1"/>
-      <line num="13" count="7" type="cond" truecount="3" falsecount="1"/>
-      <line num="14" count="7" type="cond" truecount="4" falsecount="0"/>
-      <line num="15" count="7" type="cond" truecount="3" falsecount="1"/>
-      <line num="16" count="7" type="cond" truecount="3" falsecount="1"/>
-      <line num="17" count="7" type="cond" truecount="3" falsecount="1"/>
-      <line num="18" count="7" type="cond" truecount="3" falsecount="1"/>
-      <line num="20" count="7" type="stmt"/>
-      <line num="21" count="7" type="cond" truecount="4" falsecount="0"/>
-      <line num="22" count="1" type="stmt"/>
-      <line num="25" count="7" type="stmt"/>
-      <line num="26" count="7" type="cond" truecount="5" falsecount="0"/>
+      <line num="9" count="9" type="stmt"/>
+      <line num="11" count="9" type="cond" truecount="4" falsecount="0"/>
+      <line num="12" count="9" type="cond" truecount="1" falsecount="1"/>
+      <line num="13" count="9" type="cond" truecount="3" falsecount="1"/>
+      <line num="14" count="9" type="cond" truecount="4" falsecount="0"/>
+      <line num="15" count="9" type="cond" truecount="4" falsecount="0"/>
+      <line num="16" count="9" type="cond" truecount="3" falsecount="1"/>
+      <line num="17" count="9" type="cond" truecount="3" falsecount="1"/>
+      <line num="18" count="9" type="cond" truecount="4" falsecount="0"/>
+      <line num="20" count="9" type="stmt"/>
+      <line num="21" count="9" type="cond" truecount="4" falsecount="0"/>
+      <line num="22" count="2" type="stmt"/>
+      <line num="25" count="9" type="stmt"/>
+      <line num="26" count="9" type="cond" truecount="5" falsecount="0"/>
       <line num="27" count="1" type="stmt"/>
-      <line num="30" count="7" type="cond" truecount="1" falsecount="1"/>
-      <line num="31" count="7" type="stmt"/>
-      <line num="32" count="12" type="cond" truecount="4" falsecount="0"/>
-      <line num="33" count="12" type="cond" truecount="3" falsecount="1"/>
-      <line num="34" count="12" type="cond" truecount="3" falsecount="1"/>
-      <line num="35" count="12" type="cond" truecount="4" falsecount="0"/>
+      <line num="30" count="9" type="cond" truecount="1" falsecount="1"/>
+      <line num="31" count="9" type="stmt"/>
+      <line num="32" count="14" type="cond" truecount="4" falsecount="0"/>
+      <line num="33" count="14" type="cond" truecount="3" falsecount="1"/>
+      <line num="34" count="14" type="cond" truecount="3" falsecount="1"/>
+      <line num="35" count="14" type="cond" truecount="4" falsecount="0"/>
       <line num="36" count="1" type="stmt"/>
-      <line num="41" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="41" count="9" type="cond" truecount="2" falsecount="0"/>
     </file>
   </project>
 </coverage>

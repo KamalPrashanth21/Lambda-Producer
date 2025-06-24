@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.14% </span>
+                <span class="strong">82.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/35</span>
+                <span class='fraction'>29/35</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.74% </span>
+                <span class="strong">88.13% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>50/59</span>
+                <span class='fraction'>52/59</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -115,39 +115,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,10 +165,10 @@ export function ValidateInput (data : any) : ValidationResult{ //the data that g
     <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof data.orderDate !== 'string') <span class="cstat-no" title="statement not covered" >errors.push('orderDate is required and must be a string.');</span>
     <span class="missing-if-branch" title="if path not taken" >I</span>if (!data.customerId || typeof data.customerId !== 'string') <span class="cstat-no" title="statement not covered" >errors.push('customerId is required and must be a string.');</span>
     if (!data.storeId || typeof data.storeId !== 'number') errors.push('storeId is required and must be a number.');
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (!Array.isArray(data.items) || data.items.length === 0) <span class="cstat-no" title="statement not covered" >errors.push('items must be a non-empty array.');</span>
+    if (!Array.isArray(data.items) || data.items.length === 0) errors.push('items must be a non-empty array.');
     <span class="missing-if-branch" title="if path not taken" >I</span>if (!data.paymentMethod || typeof data.paymentMethod !== 'string') <span class="cstat-no" title="statement not covered" >errors.push('paymentMethod is required and must be a string.');</span>
     <span class="missing-if-branch" title="if path not taken" >I</span>if (!data.totalAmount || typeof data.totalAmount !== 'number') <span class="cstat-no" title="statement not covered" >errors.push('totalAmount is required and must be a number.');</span>
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (!data.status || typeof data.status !== 'string') <span class="cstat-no" title="statement not covered" >errors.push('status is required and must be a string.');</span>
+    if (!data.status || typeof data.status !== 'string') errors.push('status is required and must be a string.');
 &nbsp;
     const allowedStatuses = ['NEW', 'PROCESSING', 'SHIPPED', 'DELIVERED', 'CANCELLED'];
     if (!data.status || !allowedStatuses.includes(data.status)) {
@@ -202,7 +202,7 @@ export function ValidateInput (data : any) : ValidationResult{ //the data that g
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-24T12:00:07.881Z
+                at 2025-06-24T17:12:26.802Z
             </div>
         <script src="prettify.js"></script>
         <script>
