@@ -1,11 +1,9 @@
-// import { SourceOrderData } from "./types";
-
 interface ValidationResult {
     valid : boolean;
     errors?: string[];
 }
 
-export function ValidateInput (data : any) : ValidationResult{ //the data that goes here is json.parse(event.boyd)
+export function ValidateInput (data : any) : ValidationResult{ 
     const errors : string[] = [];
 
     if (!data.orderId || typeof data.orderId !== 'string')errors.push("OrderId is required and it must be a string");
@@ -36,6 +34,16 @@ export function ValidateInput (data : any) : ValidationResult{ //the data that g
         errors.push(`items[${index}].discountAmount must be a number if provided.`);
             }
         });
+    }
+
+    if (data.shippingAddress) {
+        const address = data.shippingAddress;
+
+        if (address.street && typeof address.street !== 'string')errors.push('shippingAddress.street must be a string.');
+        if (address.city && typeof address.city !== 'string')errors.push('shippingAddress.city must be a string.');
+        if (address.state && typeof address.state !== 'string')errors.push('shippingAddress.state must be a string.');
+        if (address.zipCode && typeof address.zipCode !== 'string')errors.push('shippingAddress.zipCode must be a string.');
+        if (address.country && typeof address.country !== 'string')errors.push('shippingAddress.country must be a string.');
     }
 
       return errors.length === 0

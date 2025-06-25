@@ -1,42 +1,42 @@
 
 export interface SourceOrderData {
   orderId: string;
-  orderDate: string; // Required: Date in MM/DD/YYYY format
-  customerId: string; // Required: Customer identifier
-  storeId: number; // Required: Store where order was placed
+  orderDate: string; 
+  customerId: string; 
+  storeId: number; 
   items: {
-    sku: string; // Required: Product SKU
-    quantity: number; // Required: Quantity ordered
-    unitPrice: number; // Required: Price per unit
-    discountAmount?: number;     // Optional: Discount applied
-  }[]; // Required: At least one item
-  paymentMethod: string; // Required: Payment method used
+    sku: string; 
+    quantity: number; 
+    unitPrice: number; 
+    discountAmount?: number;
+  }[];
+  paymentMethod: string; 
   shippingAddress?: {
     street: string;
     city: string;
     state: string;
     zipCode: string;
     country: string;
-  }; // Optional: Shipping address
-  totalAmount: number; // Required: Total order amount
-  status: 'NEW' | 'PROCESSING' | 'SHIPPED' | 'DELIVERED' | 'CANCELLED'; // Required: Order status
-  notes?: string; // Optional: Additional notes
+  };
+  totalAmount: number; 
+  status: 'NEW' | 'PROCESSING' | 'SHIPPED' | 'DELIVERED' | 'CANCELLED'; 
+  notes?: string;
 }
 
 export interface TargetOrderModel {
   order: {
-    id: string; // Order ID
-    createdAt: string; // ISO format date (YYYY-MM-DD)
+    id: string; 
+    createdAt: string; 
     customer: {
-      id: string; // Customer ID
+      id: string; 
     };
     location: {
-      storeId: string; // Store ID as string
+      storeId: string; 
     };
-    status: string; // Normalized status
+    status: string;
     payment: {
-      method: string; // Payment method
-      total: number; // Total amount
+      method: string;
+      total: number; 
     };
     shipping: {
       address: {
@@ -49,17 +49,17 @@ export interface TargetOrderModel {
     };
   };
   items: {
-    productId: string; // Product SKU
-    quantity: number; // Quantity
+    productId: string;
+    quantity: number; 
     price: {
-      base: number; // Unit price
-      discount: number; // Discount (0 if none)
-      final: number; // Final price after discount
+      base: number; 
+      discount: number; 
+      final: number; 
     };
   }[];
   metadata: {
-    source: string; // Source system identifier
-    notes: string; // Notes (empty string if none)
-    processedAt: string; // ISO timestamp of processing
+    source: string; 
+    notes: string; 
+    processedAt: string; 
   };
 }
