@@ -78,7 +78,7 @@ sam deploy --guided
 
 ## Folder structure
 ```
-generic-producer-lambda/
+lambda_producer/
 │
 ├── src/                         # Core business logic
 │   ├── index.ts                 # Lambda handler
