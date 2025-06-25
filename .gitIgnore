@@ -2,3 +2,5 @@ node_modules/
 dist/
 .env
 .aws-sam/
+.~$mbda_producer_API_Docs.docx
+.~WRL0320.tmp
