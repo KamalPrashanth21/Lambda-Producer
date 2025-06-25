@@ -10,7 +10,6 @@ dotenv.config();
 
 export const LambdaHandler = async(event: APIGatewayProxyEvent) : Promise<APIGatewayProxyResult> => {
     try{
-        //for HealthCheck Endpoint
         if(event.path.endsWith('/healthCheck') && event.httpMethod==='GET'){
             return {
                 statusCode : 200,
@@ -21,7 +20,7 @@ export const LambdaHandler = async(event: APIGatewayProxyEvent) : Promise<APIGat
         if(!event.body){
             return{
                 statusCode : 400,
-                body : JSON.stringify({error : "Input Request Body is missing"}), //key-value pair
+                body : JSON.stringify({error : "Input Request Body is missing"}),
             };
         }
         const payload = JSON.parse(event.body);
@@ -35,7 +34,7 @@ export const LambdaHandler = async(event: APIGatewayProxyEvent) : Promise<APIGat
             }
         });
 
-        const validatedData = ValidateInput(payload);//validation
+        const validatedData = ValidateInput(payload);
         if(!validatedData.valid){
             return {
                 statusCode : 400,
@@ -48,10 +47,10 @@ export const LambdaHandler = async(event: APIGatewayProxyEvent) : Promise<APIGat
 
         await publishToWebHook(targetData); 
 
-        return { //successful response
+        return { 
             statusCode : 200,
             body : JSON.stringify({message : "Data has been published successfully!"}),
-        }; //after all provessing has been done successfully we return a success msg
+        };
     }
     
     catch(error : any){

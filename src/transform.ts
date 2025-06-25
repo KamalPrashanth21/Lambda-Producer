@@ -2,7 +2,7 @@ import { SourceOrderData, TargetOrderModel } from "./types";
 import { formatDatetoISO } from "./utils";
 import { logger } from "./logger";
 
-export function Transform(source : SourceOrderData) : TargetOrderModel{ //so, output is of the form targetOrderModel
+export function Transform(source : SourceOrderData) : TargetOrderModel{
     try{
     const createdAt = formatDatetoISO(source.orderDate);
     const transformed : TargetOrderModel = {

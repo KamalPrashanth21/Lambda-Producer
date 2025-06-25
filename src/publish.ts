@@ -9,7 +9,7 @@ export async function publishToWebHook(data : TargetOrderModel) : Promise<void>{
     }
     try{
         const response = await axios.post(webHook_URL,data,{
-            headers: {'Content-Type' : 'application/json' }, //can also be optional. Only URL, data is reqd
+            headers: {'Content-Type' : 'application/json' },
         });
         logger({
             level : 'INFO',

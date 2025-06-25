@@ -51,8 +51,7 @@ describe("publishToWebHook", () => {
 
   test("test should send data successfully when WEBHOOK_URL is defined", async () => {
     process.env.WEBHOOK_URL = "https://webhook.site/fake-id";
-    mockedAxios.post.mockResolvedValue({status : 200});//so when someone makes a post request to the api, it returns the mocked response as a promise
-
+    mockedAxios.post.mockResolvedValue({status : 200});
     await expect(publishToWebHook(data)).resolves.toBeUndefined();
     expect(mockedAxios.post).toHaveBeenCalledWith(
       process.env.WEBHOOK_URL,
@@ -74,6 +73,5 @@ describe("publishToWebHook", () => {
     mockedAxios.post.mockRejectedValue(new Error("Webhook failed"));
 
     await expect(publishToWebHook(data)).rejects.toThrow("Webhook failed");
-    // expect(mockedAxios.post).toHaveBeenCalledTimes(1);
   });
 });
