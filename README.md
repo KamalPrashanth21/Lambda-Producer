@@ -80,29 +80,34 @@ sam deploy --guided
 ```
 lambda_producer/
 │
-├── src/                         # Core business logic
-│   ├── index.ts                 # Lambda handler
-│   ├── validate.ts              # Input validation logic
-│   ├── transform.ts             # Transforms source to target model
-│   ├── publish.ts               # Publishes data to webhook.site
-│   ├── logger.ts                 
-│   ├── utils.ts                 # Helper functions
-│   └── types.ts                 # TypeScript interfaces 
+├── src/                                # Core source code
+│   ├── index.ts                        # Lambda handler
+│   ├── logger.ts                       # Centralized logger
+│   ├── utils.ts                        # Helper functions
 │   │
-|  test/                         # Jest unit tests
-│   ├── validate.test.ts
-│   ├── transform.test.ts
-│   └── publish.test.ts
+│   ├── services/                       # Business logic components
+│   │   ├── validate.ts                 # Input validation logic
+│   │   ├── transform.ts                # Transforms source to target
+│   │   └── publish.ts                  # Publishes data to webhook.site
+│   │
+│   ├── models/                         # Type definitions & interfaces
+│   │   └── types.ts
+│   │
+│   └── test/                           # Jest unit tests
+│       ├── validate.test.ts
+│       ├── transform.test.ts
+│       └── publish.test.ts
 │
-├── events/                         
-│   ├── event.json               # Sample input payload
-├── .env                         # Environment variable for WEBHOOK_URL
-├── .gitignore                   
-├── jest.config.js               # Jest test config
-├── package.json                 # Scripts and dependencies
-├── tsconfig.json                # TypeScript compiler config
-├── template.yaml                # AWS SAM deployment template
-└── README.md                    # Project overview and setup guide
+├── events/
+│   └── event.json                      # Sample input payload
+│
+├── .gitignore                         
+├── jest.config.js                      # Jest configuration
+├── package.json                        # Scripts and dependencies
+├── tsconfig.json                       # TypeScript compiler config
+├── template.yaml                       # AWS SAM deployment template
+└── README.md                           # Project overview and setup guide
+
 ```
 ---
 
