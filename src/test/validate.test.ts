@@ -1,4 +1,4 @@
-import { ValidateInput } from "../validate";
+import { ValidateInput } from "../services/validate";
 
     describe("validateInput",()=>{
         const inputData = {
@@ -20,6 +20,13 @@ import { ValidateInput } from "../validate";
                 }
             ],
             "paymentMethod": "CREDIT_CARD",
+            "shippingAddress": {
+                "street": "123 Main St",
+                "city": "Columbus",
+                "state": "OH",
+                "zipCode": "43215",
+                "country": "USA"
+            },
             "totalAmount": 104.97,
             "status": "NEW",
             "notes": "Please deliver after 5pm"

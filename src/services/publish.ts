@@ -1,11 +1,11 @@
-import { TargetOrderModel } from "./types";
+import { TargetOrderModel } from "../models/types";
 import axios from "axios";
-import { logger } from "./logger";
+import { logger } from "../logger";
 
 export async function publishToWebHook(data : TargetOrderModel) : Promise<void>{
     const webHook_URL = process.env.WEBHOOK_URL;
     if(!webHook_URL){
-        throw new Error("No URL in environmental variables");
+        throw new Error("WEBHOOK_URL environment variable is not configured!");
     }
     try{
         const response = await axios.post(webHook_URL,data,{

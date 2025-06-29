@@ -1,6 +1,6 @@
-import { SourceOrderData, TargetOrderModel } from "./types";
-import { formatDatetoISO } from "./utils";
-import { logger } from "./logger";
+import { SourceOrderData, TargetOrderModel } from "../models/types";
+import { formatDatetoISO } from "../utils";
+import { logger } from "../logger";
 
 export function Transform(source : SourceOrderData) : TargetOrderModel{
     try{

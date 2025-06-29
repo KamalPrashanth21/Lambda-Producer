@@ -1,6 +1,6 @@
 import axios from "axios";
-import { publishToWebHook } from "../publish";
-import { TargetOrderModel } from "../types";
+import { publishToWebHook } from "../services/publish";
+import { TargetOrderModel } from "../models/types";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -65,7 +65,7 @@ describe("publishToWebHook", () => {
 
   test("test should throw an error when WEBHOOK_URL is missing", async () => {
     delete process.env.WEBHOOK_URL;
-    await expect(publishToWebHook(data)).rejects.toThrow("No URL in environmental variables");
+    await expect(publishToWebHook(data)).rejects.toThrow("WEBHOOK_URL environment variable is not configured!");
   });
 
   test("test should throw error when axios.post fails", async () => {

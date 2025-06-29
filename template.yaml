@@ -7,7 +7,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: process-order-producer
-      Handler: dist/index.LambdaHandler             
+      Handler: dist/index.lambdaHandler             
       Runtime: nodejs18.x
       CodeUri: .                            
       Timeout: 10
@@ -24,4 +24,4 @@ Resources:
             Method: GET
       Environment:
         Variables:
-          WEBHOOK_URL: https://webhook.site/4f49fb04-964f-4351-9611-a1ff5c92cf55
+          WEBHOOK_URL: https://webhook.site/b209a862-22db-4377-9b0e-99cc4836f37d

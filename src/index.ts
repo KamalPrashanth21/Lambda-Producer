@@ -1,19 +1,28 @@
-import { SourceOrderData, TargetOrderModel } from "./types";
-import { Transform } from "./transform";
-import { ValidateInput } from "./validate";
-import dotenv from 'dotenv';
-import {publishToWebHook} from "./publish";
+import { SourceOrderData, TargetOrderModel } from "./models/types";
+import { Transform } from "./services/transform";
+import { ValidateInput } from "./services/validate";
+import {publishToWebHook} from "./services/publish";
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { logger } from "./logger";
 
-dotenv.config();
-
-export const LambdaHandler = async(event: APIGatewayProxyEvent) : Promise<APIGatewayProxyResult> => {
+export const lambdaHandler = async(event: APIGatewayProxyEvent) : Promise<APIGatewayProxyResult> => {
     try{
+        if (!process.env.WEBHOOK_URL) {
+                return {
+                    statusCode: 500,
+                    body: JSON.stringify({
+                        status: 'error',
+                        error: 'WEBHOOK_URL environment variable is not configured!',
+                    }),
+                };
+            }
         if(event.path.endsWith('/healthCheck') && event.httpMethod==='GET'){
-            return {
+            return{
                 statusCode : 200,
-                body : JSON.stringify({status:'ok'}),
+                body : JSON.stringify({
+                    status:'ok',
+                    message:'Lambda is healthy!'
+                }),
             };
         }
 
@@ -56,7 +65,7 @@ export const LambdaHandler = async(event: APIGatewayProxyEvent) : Promise<APIGat
     catch(error : any){
         console.error("An error has occured", error);
         return{
-            statusCode : 500,
+            statusCode : error.statusCode,
             body : JSON.stringify({error : "An internal server error has occured!"}),
         };
     };   

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.85% </span>
+                <span class="strong">76.59% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>29/35</span>
+                <span class='fraction'>36/47</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.13% </span>
+                <span class="strong">83.95% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>52/59</span>
+                <span class='fraction'>68/81</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>24/24</span>
+                <span class='fraction'>31/31</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -107,9 +107,15 @@
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,17 +154,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// import { SourceOrderData } from "./types";
-&nbsp;
-interface ValidationResult {
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">interface ValidationResult {
     valid : boolean;
     errors?: string[];
 }
 &nbsp;
-export function ValidateInput (data : any) : ValidationResult{ //the data that goes here is json.parse(event.boyd)
+export function ValidateInput (data : any) : ValidationResult{ 
     const errors : string[] = [];
 &nbsp;
     if (!data.orderId || typeof data.orderId !== 'string')errors.push("OrderId is required and it must be a string");
@@ -191,6 +205,16 @@ export function ValidateInput (data : any) : ValidationResult{ //the data that g
         });
     }
 &nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (data.shippingAddress) {
+        const address = data.shippingAddress;
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (address.street &amp;&amp; typeof address.street !== 'string')<span class="cstat-no" title="statement not covered" >errors.push('shippingAddress.street must be a string.');</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (address.city &amp;&amp; typeof address.city !== 'string')<span class="cstat-no" title="statement not covered" >errors.push('shippingAddress.city must be a string.');</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (address.state &amp;&amp; typeof address.state !== 'string')<span class="cstat-no" title="statement not covered" >errors.push('shippingAddress.state must be a string.');</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (address.zipCode &amp;&amp; typeof address.zipCode !== 'string')<span class="cstat-no" title="statement not covered" >errors.push('shippingAddress.zipCode must be a string.');</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (address.country &amp;&amp; typeof address.country !== 'string')<span class="cstat-no" title="statement not covered" >errors.push('shippingAddress.country must be a string.');</span>
+    }
+&nbsp;
       return errors.length === 0
     ? { valid: true }
     : { valid: false, errors };
@@ -202,7 +226,7 @@ export function ValidateInput (data : any) : ValidationResult{ //the data that g
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-06-24T17:12:26.802Z
+                at 2025-06-29T18:26:41.870Z
             </div>
         <script src="prettify.js"></script>
         <script>

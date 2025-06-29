@@ -1,5 +1,5 @@
-import { Transform } from "../transform";
-import { SourceOrderData } from "../types";
+import { Transform } from "../services/transform";
+import { SourceOrderData } from "../models/types";
 
 describe("transform",()=>{
     const validData : SourceOrderData = {
